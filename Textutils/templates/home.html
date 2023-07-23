@@ -1,26 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text page</title>
-</head>
-<body>
-    <h1>Hello This is a text analyzer page</h1>
-    <h3>Please add your text below in teaxt area</h3>
-    <form action="/removepunctuation" method="get">
-        <textarea name="text" id="" cols="30" rows="10" style="width: 906px; height: 119px;"></textarea>
-        <br>
-        <input type="checkbox" name="punctuation" id="1">
-        <label for="punctuation">Remove Punctuation</label>
-        <br>
-        <input type="checkbox" name="upper" id="2">
-        <label for="upper">UpperCase</label>
-        <br>
-        <input type="checkbox" name="space" id="3">
-        <label for="space">Spaceremover</label>
-        <br>
-        <button type="submit">Submit</button>
-    </form>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Text Utils </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">TextUtils</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contactus</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="#">About</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Welcome to my Website! </strong> Please enter the texts.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <div class="container">
+        <form action="/removepunctuation/" method="post">{%csrf_token%}
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" name="text" id="floatingTextarea" rows="9" style="height: 183px;"></textarea>
+                <label for="text">Enter your text Here</label>
+              </div>
+            
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" name="punctuation" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="punctuation">Remove Punctuation</label>
+              </div>
+
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" name="upper" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="upper">UpperCase</label>
+              </div>
+
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" name="space" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="space">Remove White spaces</label>
+              </div>
+
+              <button type="submit" class="btn btn-dark mt-4">Analyze text</button>
+        </form>
+        
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
 </html>
